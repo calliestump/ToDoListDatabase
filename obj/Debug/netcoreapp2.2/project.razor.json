@@ -1,5 +1,5 @@
 {
-  "FilePath": "/Users/callie/Desktop/Week8/CSharpToDoList.Solution/ToDoList/ToDoList.csproj",
+  "FilePath": "/Users/callie/Desktop/Week10/CSharpToDoList.Solution/ToDoList/ToDoList.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-2.1",
     "LanguageVersion": "2.1",
@@ -1872,18 +1872,48 @@
   "RootNamespace": "ToDoList",
   "Documents": [
     {
-      "FilePath": "/Users/callie/Desktop/Week8/CSharpToDoList.Solution/ToDoList/Views/Items/Index.cshtml",
-      "TargetPath": "Views\\Items\\Index.cshtml",
+      "FilePath": "/Users/callie/Desktop/Week10/CSharpToDoList.Solution/ToDoList/Views/Categories/Show.cshtml",
+      "TargetPath": "Views\\Categories\\Show.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/callie/Desktop/Week8/CSharpToDoList.Solution/ToDoList/Views/Home/Index.cshtml",
+      "FilePath": "/Users/callie/Desktop/Week10/CSharpToDoList.Solution/ToDoList/Views/Items/DeleteAll.cshtml",
+      "TargetPath": "Views\\Items\\DeleteAll.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/callie/Desktop/Week10/CSharpToDoList.Solution/ToDoList/Views/Categories/Index.cshtml",
+      "TargetPath": "Views\\Categories\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/callie/Desktop/Week10/CSharpToDoList.Solution/ToDoList/Views/Shared/Footer.cshtml",
+      "TargetPath": "Views\\Shared\\Footer.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/callie/Desktop/Week10/CSharpToDoList.Solution/ToDoList/Views/Shared/_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/callie/Desktop/Week10/CSharpToDoList.Solution/ToDoList/Views/Categories/New.cshtml",
+      "TargetPath": "Views\\Categories\\New.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/callie/Desktop/Week10/CSharpToDoList.Solution/ToDoList/Views/Items/Show.cshtml",
+      "TargetPath": "Views\\Items\\Show.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/callie/Desktop/Week10/CSharpToDoList.Solution/ToDoList/Views/Items/New.cshtml",
+      "TargetPath": "Views\\Items\\New.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/callie/Desktop/Week10/CSharpToDoList.Solution/ToDoList/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/callie/Desktop/Week8/CSharpToDoList.Solution/ToDoList/Views/Items/CreateForm.cshtml",
-      "TargetPath": "Views\\Items\\CreateForm.cshtml",
       "FileKind": "mvc"
     }
   ],
