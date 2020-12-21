@@ -6,7 +6,7 @@ namespace ToDoList.Models
   public class Item
   {
     public string Description { get; set; }
-    public int Id { get; }
+    public int Id { get; set ; }
 
     public Item(string description)
     {
@@ -56,11 +56,36 @@ namespace ToDoList.Models
       }
     }
 
-    public static Item Find(int searchId)
+    public static Item Find(int id)
     {
-      Item placeholderItem = new Item("placeholder item");
-      return placeholderItem;
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      // We create MySqlCommand object and add a query to its CommandText property. We always need to do this to make a SQL query.
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM 'items' WHERE id = @this.id;";
+      // We have to use parameter placeholders (@thisId) and a `MySqlParameter` object to prevent SQL injection attacks. This is only necessary when we are passing parameters into a query. We also did this with our Save() method.
+      MySqlParameter thisId = new MySqlParameter();
+      thisId.ParameterName = "@thisId";
+      thisId.Value = id;
+      cmd.Parameters.Add(thisId);
+      // We use the ExecuteReader() method because our query will be returning results and we need this method to read these results. This is in contrast to the ExecuteNonQuery() method, which we use for SQL commands that don't return results like our Save() method.
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      int itemId = 0;
+      string itemDescription = "";
+      while (rdr.Read())
+      {
+        itemId = rdr.GetInt32(0);
+        itemDescription = rdr.GetString(1);
+      }
+      Item foundItem = new Item(itemDescription, itemId);
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return foundItem;
     }
+
     public override bool Equals(System.Object otherItem)
     {
       if (!(otherItem is Item))
@@ -70,6 +95,7 @@ namespace ToDoList.Models
       else
       {
         Item newItem = (Item) otherItem;
+        bool idEquality = (this.Id == newItem.Id);
         bool descriptionEquality = (this.Description == newItem.Description);
         return descriptionEquality;
       }
@@ -85,7 +111,7 @@ namespace ToDoList.Models
       description.Value = this.Description;
       cmd.Parameters.Add(description);
       cmd.ExecuteNonQuery();
-      // Id = cmd.LastInsertedId;
+      Id = (int) cmd.LastInsertedId;
 
       conn.Close();
       if (conn != null)
@@ -93,5 +119,6 @@ namespace ToDoList.Models
         conn.Dispose();
       }
     }
+    
   }
 }
